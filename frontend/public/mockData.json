@@ -1,0 +1,23 @@
+{
+  "mockData": [
+    {
+      "id": 1,
+      "name": "Item 1",
+      "description": "First item description",
+      "created": "2026-01-01T10:00:00Z"
+    },
+    {
+      "id": 2,
+      "name": "Item 2",
+      "description": "Second item description",
+      "created": "2026-01-02T10:00:00Z"
+    },
+    {
+      "id": 3,
+      "name": "Item 3",
+      "description": "Third item description",
+      "created": "2026-01-03T10:00:00Z"
+    }
+  ]
+}
+

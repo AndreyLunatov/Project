@@ -1,0 +1,28 @@
+{
+  "swaggerSettings": {
+    "title": "COCO API",
+    "version": "v1",
+    "description": "REST API для COCO приложения",
+    "contact": {
+      "name": "COCO Team",
+      "url": "http://localhost:5000"
+    }
+  },
+  "endpoints": [
+    {
+      "path": "/api/health/status",
+      "method": "GET",
+      "description": "Проверка состояния API",
+      "requiresAuth": false
+    },
+    {
+      "path": "/api/health/info",
+      "method": "GET",
+      "description": "Информация об API",
+      "requiresAuth": false
+    }
+  ],
+  "version": "1.0.0",
+  "buildDate": "2026-04-23"
+}
+

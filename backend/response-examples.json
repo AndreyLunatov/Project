@@ -1,0 +1,32 @@
+{
+  "examples": {
+    "healthStatus": {
+      "status": "healthy",
+      "timestamp": "2026-04-23T10:00:00Z",
+      "version": "1.0.0"
+    },
+    "healthInfo": {
+      "api": "COCO API",
+      "version": "1.0.0",
+      "environment": "Development",
+      "timestamp": "2026-04-23T10:00:00Z"
+    },
+    "user": {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john@example.com",
+      "created": "2026-01-01T10:00:00Z"
+    },
+    "error": {
+      "code": "VALIDATION_ERROR",
+      "message": "Validation failed",
+      "details": [
+        {
+          "field": "email",
+          "message": "Invalid email format"
+        }
+      ]
+    }
+  }
+}
+

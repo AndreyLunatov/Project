@@ -1,0 +1,39 @@
+# EditorConfig помогает поддерживать консистентный стиль кодирования для нескольких разработчиков
+
+root = true
+
+# Все файлы
+[*]
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+charset = utf-8
+
+# C# файлы
+[*.cs]
+indent_size = 4
+tab_size = 4
+end_of_line = crlf
+
+# JavaScript/TypeScript
+[*.{js,jsx,ts,tsx}]
+indent_size = 2
+tab_size = 2
+end_of_line = lf
+
+# JSON файлы
+[*.json]
+indent_size = 2
+
+# XML/CSPROJ файлы
+[*.{xml,csproj,props}]
+indent_size = 2
+
+# Markdown
+[*.md]
+trim_trailing_whitespace = false
+
+# CSS/SCSS
+[*.{css,scss}]
+indent_size = 2
+

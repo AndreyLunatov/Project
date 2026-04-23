@@ -1,0 +1,11 @@
+@Backend_HostAddress = http://localhost:5248
+
+GET {{Backend_HostAddress}}/api/Health/status
+Accept: application/json
+
+###
+
+GET {{Backend_HostAddress}}/api/Health/info
+Accept: application/json
+
+###
