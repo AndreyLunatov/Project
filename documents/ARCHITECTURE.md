@@ -48,6 +48,7 @@ COCO/
 ## 🔌 Backend - ASP.NET Core 10.0
 
 ### Особенности
+
 - ✅ Настроен CORS для React фронтенда
 - ✅ Swagger/OpenAPI документация
 - ✅ Логирование черезConsoleLogger
@@ -98,13 +99,14 @@ public class MyController : ControllerBase
 - **useApi** - управление API запросами с loading/error состояниями
 
 ```javascript
-const { data, loading, error, execute } = useApi(api.get);
+const {data, loading, error, execute} = useApi(api.get);
 await execute('/health/status');
 ```
 
 ### Утилиты
 
 Вспомогательные функции в `src/utils/helpers.js`:
+
 - `formatDate()` - форматирование дат
 - `formatTime()` - форматирование времени
 - `isEmpty()` - проверка на пусто
@@ -116,16 +118,16 @@ await execute('/health/status');
 Использование в компонентах:
 
 ```javascript
-import { api } from './api';
+import {api} from './api';
 
 // GET запрос
 const data = await api.get('/health/status');
 
 // POST запрос
-const response = await api.post('/endpoint', { key: 'value' });
+const response = await api.post('/endpoint', {key: 'value'});
 
 // PUT запрос
-const updated = await api.put('/endpoint/1', { key: 'value' });
+const updated = await api.put('/endpoint/1', {key: 'value'});
 
 // DELETE запрос
 await api.delete('/endpoint/1');
@@ -158,20 +160,24 @@ npm run format:check # Проверка форматирования
 ### CSS переменные
 
 Определены в `index.css`:
+
 - `--text` - цвет текста
 - `--bg` - цвет фона
 - `--accent` - основной цвет акцента
 - `--border` - цвет границ
 
 ### Dark Mode
+
 Автоматически адаптируется под системные настройки через `prefers-color-scheme`
 
 ## 📦 Зависимости
 
 ### Backend
+
 - Microsoft.AspNetCore.OpenApi 10.0.7 - Swagger поддержка
 
 ### Frontend
+
 - react 19.2.5
 - react-dom 19.2.5
 - vite 8.0.10
@@ -183,6 +189,7 @@ npm run format:check # Проверка форматирования
 ### CORS
 
 Backend разрешает запросы с:
+
 - http://localhost:5173 (Vite dev server)
 - http://localhost:3000 (альтернативный порт)
 

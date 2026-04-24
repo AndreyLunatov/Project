@@ -4,18 +4,19 @@
 
 ## 📊 Project Status
 
-| Компонент | Статус | Примечание |
-|-----------|--------|-----------|
-| Backend (ASP.NET Core) | ✅ Готов | PORT: 5000 |
-| Frontend (React + Vite) | ✅ Готов | PORT: 5173 |
-| Documentation | ✅ Полная | 10+ файлов |
-| Configuration | ✅ Настроена | JSON конфиги |
-| API | ✅ Работает | Health endpoints |
-| Swagger | ✅ Включен | http://localhost:5000/swagger |
+| Компонент               | Статус      | Примечание                    |
+|-------------------------|-------------|-------------------------------|
+| Backend (ASP.NET Core)  | ✅ Готов     | PORT: 5000                    |
+| Frontend (React + Vite) | ✅ Готов     | PORT: 5173                    |
+| Documentation           | ✅ Полная    | 10+ файлов                    |
+| Configuration           | ✅ Настроена | JSON конфиги                  |
+| API                     | ✅ Работает  | Health endpoints              |
+| Swagger                 | ✅ Включен   | http://localhost:5000/swagger |
 
 ## 🗂 Структура файлов
 
 ### Root директория
+
 ```
 COCO/
 ├── README.md               ✅ Основной документ
@@ -32,20 +33,22 @@ COCO/
 
 ### Backend (bekand/)
 ```
+
 bekand/
-├── BACKEND_DOCS.md         ✅ Полная документация
-├── Program.cs              ✅ Main configuration
-├── bekand.csproj           ✅ Project file
-├── appsettings.json        ✅ Production config
+├── BACKEND_DOCS.md ✅ Полная документация
+├── Program.cs ✅ Main configuration
+├── bekand.csproj ✅ Project file
+├── appsettings.json ✅ Production config
 ├── appsettings.Development.json ✅ Dev config
-├── api-config.json         ✅ API конфигурация
-├── response-examples.json  ✅ Примеры ответов
+├── api-config.json ✅ API конфигурация
+├── response-examples.json ✅ Примеры ответов
 ├── Controllers/
-│   └── HealthController.cs ✅ Example контроллер
+│ └── HealthController.cs ✅ Example контроллер
 └── Properties/
-    └── launchSettings.json ✅ Dev settings
+└── launchSettings.json ✅ Dev settings
 
 ### Frontend (frontend/)
+
 ```
 frontend/
 ├── FRONTEND_DOCS.md        ✅ Полная документация
@@ -82,6 +85,7 @@ frontend/
 ## 🚀 Команды для запуска
 
 ### Backend
+
 ```bash
 cd bekand
 dotnet run
@@ -89,6 +93,7 @@ dotnet run
 ```
 
 ### Frontend
+
 ```bash
 cd frontend
 npm install        # Первый раз
@@ -97,6 +102,7 @@ npm run dev
 ```
 
 ### Проверка
+
 ```bash
 # Frontend
 npm run lint       # Проверить ошибки
@@ -108,18 +114,19 @@ dotnet build       # Собрать проект
 
 ## 📝 Документация
 
-| Файл | Время | Для кого | Содержание |
-|------|-------|---------|-----------|
-| README.md | 10 мин | Все | Основной документ, быстрый старт |
-| QUICK_START.md | 5 мин | Новичков | Команды и ответы на вопросы |
-| FRONTEND_DOCS.md | 30 мин | Frontend | Структура, компоненты, API |
-| BACKEND_DOCS.md | 30 мин | Backend | Контроллеры, endpoints, тестирование |
-| ARCHITECTURE.md | 30 мин | Архитекторы | Полная архитектура системы |
-| DEVELOPMENT.md | 20 мин | Разработчиков | Git workflow, debugging, patterns |
+| Файл             | Время  | Для кого      | Содержание                           |
+|------------------|--------|---------------|--------------------------------------|
+| README.md        | 10 мин | Все           | Основной документ, быстрый старт     |
+| QUICK_START.md   | 5 мин  | Новичков      | Команды и ответы на вопросы          |
+| FRONTEND_DOCS.md | 30 мин | Frontend      | Структура, компоненты, API           |
+| BACKEND_DOCS.md  | 30 мин | Backend       | Контроллеры, endpoints, тестирование |
+| ARCHITECTURE.md  | 30 мин | Архитекторы   | Полная архитектура системы           |
+| DEVELOPMENT.md   | 20 мин | Разработчиков | Git workflow, debugging, patterns    |
 
 ## ✨ Основные файлы для изучения
 
 ### Для Frontend разработчика
+
 1. `frontend/FRONTEND_DOCS.md` - полная документация
 2. `frontend/src/components/HeroSection.jsx` - пример компонента
 3. `frontend/src/api.js` - HTTP клиент
@@ -127,6 +134,7 @@ dotnet build       # Собрать проект
 5. `frontend/public/config.json` - конфигурация
 
 ### Для Backend разработчика
+
 1. `bekand/BACKEND_DOCS.md` - полная документация
 2. `bekand/Controllers/HealthController.cs` - пример контроллера
 3. `bekand/Program.cs` - конфигурация
@@ -136,29 +144,36 @@ dotnet build       # Собрать проект
 ## 📊 API Endpoints
 
 ### Health Check
+
 - `GET /api/health/status` - Проверка состояния
 - `GET /api/health/info` - Информация об API
 
 ### Swagger UI
+
 - http://localhost:5000/swagger - Интерактивная документация
 
 ## 🔗 Интеграция Frontend-Backend
 
 ### Proxy настроен
+
 Frontend может вызывать:
+
 ```javascript
 fetch('/api/health/status')
 // Автоматически идет на http://localhost:5000/api/health/status
 ```
 
 ### CORS разрешен
+
 Backend разрешает запросы с:
+
 - http://localhost:5173 (Vite dev server)
 - http://localhost:3000 (альтернативный порт)
 
 ## 🎨 Code Quality
 
 ### ESLint + Prettier
+
 ```bash
 cd frontend
 npm run lint:fix   # Исправить ошибки
@@ -166,6 +181,7 @@ npm run format     # Форматировать
 ```
 
 ### EditorConfig
+
 - Консистентный стиль для всех файлов
 - C#: 4 пробела, CRLF
 - JS/JSX: 2 пробела, LF
@@ -173,12 +189,14 @@ npm run format     # Форматировать
 ## 🧪 Тестирование API
 
 ### Через Swagger UI
+
 1. Откройте http://localhost:5000/swagger
 2. Найдите endpoint
 3. Нажмите "Try it out"
 4. Посмотрите Response
 
 ### Через cURL
+
 ```bash
 curl http://localhost:5000/api/health/status
 
@@ -188,26 +206,29 @@ curl -X POST http://localhost:5000/api/users \
 ```
 
 ### Через DevTools
+
 1. В браузере F12 → Network
 2. Выполните запрос
 3. Посмотрите Request/Response
 
 ## 🐛 Частые проблемы
 
-| Проблема | Решение |
-|----------|---------|
-| Backend не запускается | `dotnet build` - проверить ошибки |
-| Frontend ошибка | `npm install` - переустановить зависимости |
-| Порт занят | Поменять в `launchSettings.json` |
-| CORS ошибка | Убедитесь что backend на 5000 |
-| npm ошибка | `npm cache clean --force` |
+| Проблема               | Решение                                    |
+|------------------------|--------------------------------------------|
+| Backend не запускается | `dotnet build` - проверить ошибки          |
+| Frontend ошибка        | `npm install` - переустановить зависимости |
+| Порт занят             | Поменять в `launchSettings.json`           |
+| CORS ошибка            | Убедитесь что backend на 5000              |
+| npm ошибка             | `npm cache clean --force`                  |
 
 ## 📦 Установленные зависимости
 
 ### Backend
+
 - Microsoft.AspNetCore.OpenApi 10.0.7 (Swagger)
 
 ### Frontend
+
 - react 19.2.5
 - react-dom 19.2.5
 - vite 8.0.10
@@ -225,6 +246,7 @@ curl -X POST http://localhost:5000/api/users \
 ## 🚀 Production Deployment
 
 ### Frontend
+
 ```bash
 cd frontend
 npm run build
@@ -232,6 +254,7 @@ npm run build
 ```
 
 ### Backend
+
 ```bash
 cd bekand
 dotnet publish -c Release
@@ -248,18 +271,21 @@ dotnet publish -c Release
 ## 🎯 Следующие шаги
 
 ### Обязательные
+
 - [ ] Прочитать README.md
 - [ ] Запустить `dotnet run` (backend)
 - [ ] Запустить `npm run dev` (frontend)
 - [ ] Открыть http://localhost:5173
 
 ### Рекомендуемые
+
 - [ ] Посмотреть FRONTEND_DOCS.md
 - [ ] Посмотреть BACKEND_DOCS.md
 - [ ] Создать свой контроллер
 - [ ] Создать свой компонент
 
 ### Опциональные
+
 - [ ] Добавить unit тесты
 - [ ] Настроить CI/CD
 - [ ] Добавить Docker

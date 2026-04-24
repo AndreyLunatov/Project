@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="97b14ed8-fb77-437b-accf-71d9520af6a0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/public/logo_with_text.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/logo_without_text.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/favicon.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/icons.svg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +16,7 @@
   <component name="CopilotPersistence">
     <persistenceIdMap>
       <entry key="_/Users/nb/Documents/pr" value="3Cn8MIImEiUuUUoAOoPHMeN9Fjm" />
+      <entry key="_/Users/nb/WebstormProjects/pr" value="3CnCg6DxKj3SJPXHtQpQcKs8Jox" />
     </persistenceIdMap>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -32,26 +30,26 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "FaStiCkeR"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;FaStiCkeR&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "git@github.com:AndreyLunatov/Project.git",
-    "accountId": "e853b9c7-17b3-4529-9a0f-319c12e75dd0"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:AndreyLunatov/Project.git&quot;,
+    &quot;accountId&quot;: &quot;e853b9c7-17b3-4529-9a0f-319c12e75dd0&quot;
   }
-}]]></component>
+}</component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8,
-  "fromUser": false
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8,
+  &quot;fromUser&quot;: false
+}</component>
   <component name="ProjectId" id="3Cn8MIImEiUuUUoAOoPHMeN9Fjm" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -69,7 +67,7 @@
     "git-widget-placeholder": "front__bundle",
     "javascript.preferred.runtime.type.id": "node",
     "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/Users/nb/Documents/pr/frontend/public",
+    "last_opened_file_path": "/Users/nb/WebstormProjects/pr",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -102,6 +100,7 @@
       <option name="presentableId" value="Default" />
       <updated>1777009928216</updated>
       <workItem from="1777009931295" duration="1447000" />
+      <workItem from="1777012056012" duration="932000" />
     </task>
     <servers />
   </component>

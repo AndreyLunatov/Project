@@ -38,12 +38,14 @@ Frontend доступен на **http://localhost:5173**
 ## 🛠 Технологический стек
 
 **Backend:**
+
 - ASP.NET Core 10.0
 - Swagger/OpenAPI для документации
 - CORS для безопасности
 - Логирование и обработка ошибок
 
 **Frontend:**
+
 - React 19.2
 - Vite 8.0 (молниеносная разработка)
 - ESLint + Prettier для качества кода
@@ -67,19 +69,23 @@ npm run preview      # Preview production
 Swagger доступен на: http://localhost:5000/swagger
 
 Основные endpoints:
+
 - `GET /api/health/status` - проверка состояния
 - `GET /api/health/info` - информация об API
 
 ## 🐛 Решение проблем
 
 ### CORS ошибки
+
 Убедитесь, что backend запущен на http://localhost:5000
 
 ### Порты уже заняты
+
 - Backend: измените порт в `bekand/Properties/launchSettings.json`
 - Frontend: Vite автоматически использует следующий доступный порт
 
 ### Зависимости не установлены
+
 ```bash
 cd bekand && dotnet restore
 cd frontend && npm install
@@ -87,12 +93,13 @@ cd frontend && npm install
 
 ## 📚 Документация
 
-- [ARCHITECTURE.md](./ARCHITECTURE.md) - детальная архитектура и структура
+- [ARCHITECTURE.md](ARCHITECTURE.md) - детальная архитектура и структура
 - Backend имеет встроенное Swagger UI
 
 ## 🤝 Разработка
 
 Проект организован для удобной разработки:
+
 - Используйте JetBrains Rider для C# разработки
 - Используйте WebShtorm для Frontend разработки
 - Custom hooks для API запросов

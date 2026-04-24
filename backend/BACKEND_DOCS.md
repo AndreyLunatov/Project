@@ -25,27 +25,32 @@ bekand/
 ## 🚀 Быстрый старт
 
 ### Требования
+
 - .NET SDK 10.0+
 - Visual Studio 2022, Rider, или VSCode
 
 ### Запуск Development сервера
+
 ```bash
 cd bekand
 dotnet run
 ```
 
 **Server доступен на:**
+
 - HTTP:  http://localhost:5000
 - HTTPS: https://localhost:5001
 
 **Swagger UI:** http://localhost:5000/swagger
 
 ### Build проекта
+
 ```bash
 dotnet build
 ```
 
 ### Production сборка
+
 ```bash
 dotnet publish -c Release
 ```
@@ -89,6 +94,7 @@ app.MapControllers();
 ## 🔧 Конфигурация
 
 ### appsettings.json (Production)
+
 ```json
 {
   "Logging": {
@@ -109,6 +115,7 @@ app.MapControllers();
 ```
 
 ### appsettings.Development.json (Development)
+
 ```json
 {
   "Logging": {
@@ -125,6 +132,7 @@ app.MapControllers();
 ```
 
 ### launchSettings.json (Dev URLs)
+
 ```json
 {
   "profiles": {
@@ -143,19 +151,24 @@ app.MapControllers();
 ```
 
 Для изменения порта:
+
 - Поменяйте `"applicationUrl": "http://localhost:5001"`
 - Обновите frontend proxy в `vite.config.js`
 
 ## 📝 API Endpoints
 
 ### Health Check
+
 Пример контроллера в `Controllers/HealthController.cs`
 
 **GET** `/api/health/status` - Проверка состояния
+
 ```bash
 curl http://localhost:5000/api/health/status
 ```
+
 **Ответ:**
+
 ```json
 {
   "status": "healthy",
@@ -165,10 +178,13 @@ curl http://localhost:5000/api/health/status
 ```
 
 **GET** `/api/health/info` - Информация об API
+
 ```bash
 curl http://localhost:5000/api/health/info
 ```
+
 **Ответ:**
+
 ```json
 {
   "api": "COCO API",
@@ -183,6 +199,7 @@ curl http://localhost:5000/api/health/info
 ### Пример простого контроллера
 
 **Файл: `Controllers/UsersController.cs`**
+
 ```csharp
 using Microsoft.AspNetCore.Mvc;
 
@@ -296,30 +313,35 @@ public class UpdateUserRequest
 ## 🔌 HTTP методы
 
 ### GET - Получение данных
+
 ```csharp
 [HttpGet("{id}")]
 public IActionResult GetById(int id)
 ```
 
 ### POST - Создание
+
 ```csharp
 [HttpPost]
 public IActionResult Create([FromBody] CreateRequest request)
 ```
 
 ### PUT - Полное обновление
+
 ```csharp
 [HttpPut("{id}")]
 public IActionResult Update(int id, [FromBody] UpdateRequest request)
 ```
 
 ### PATCH - Частичное обновление
+
 ```csharp
 [HttpPatch("{id}")]
 public IActionResult PartialUpdate(int id, [FromBody] PatchRequest request)
 ```
 
 ### DELETE - Удаление
+
 ```csharp
 [HttpDelete("{id}")]
 public IActionResult Delete(int id)
@@ -327,18 +349,19 @@ public IActionResult Delete(int id)
 
 ## 📊 Response коды
 
-| Код | Значение | Использование |
-|-----|---------|---------------|
-| 200 | OK | Успешный GET, PUT |
-| 201 | Created | Успешный POST |
-| 204 | No Content | Успешный DELETE |
-| 400 | Bad Request | Неверные параметры |
-| 401 | Unauthorized | Не авторизован |
-| 403 | Forbidden | Нет доступа |
-| 404 | Not Found | Ресурс не найден |
-| 500 | Internal Error | Ошибка сервера |
+| Код | Значение       | Использование      |
+|-----|----------------|--------------------|
+| 200 | OK             | Успешный GET, PUT  |
+| 201 | Created        | Успешный POST      |
+| 204 | No Content     | Успешный DELETE    |
+| 400 | Bad Request    | Неверные параметры |
+| 401 | Unauthorized   | Не авторизован     |
+| 403 | Forbidden      | Нет доступа        |
+| 404 | Not Found      | Ресурс не найден   |
+| 500 | Internal Error | Ошибка сервера     |
 
 ### Пример с кодами
+
 ```csharp
 [HttpGet("{id}")]
 [ProducesResponseType(StatusCodes.Status200OK)]
@@ -359,11 +382,13 @@ public IActionResult GetById(int id)
 ## 🧪 Тестирование API
 
 ### Swagger UI (Встроенный)
+
 1. Запустите `dotnet run`
 2. Откройте http://localhost:5000/swagger
 3. Нажимайте "Try it out" для каждого endpoint
 
 ### cURL (Command Line)
+
 ```bash
 # GET
 curl http://localhost:5000/api/users
@@ -383,12 +408,14 @@ curl -X DELETE http://localhost:5000/api/users/1
 ```
 
 ### Postman/Insomnia
+
 1. Импортируйте Swagger JSON: http://localhost:5000/swagger/v1/swagger.json
 2. Используйте коллекцию для тестирования
 
 ## 🔐 CORS конфигурация
 
 ### Development (Разрешить все)
+
 ```csharp
 options.AddPolicy("Development", policy =>
 {
@@ -399,6 +426,7 @@ options.AddPolicy("Development", policy =>
 ```
 
 ### Production (Ограничить)
+
 ```csharp
 options.AddPolicy("Production", policy =>
 {
@@ -409,6 +437,7 @@ options.AddPolicy("Production", policy =>
 ```
 
 ### Включить в Program.cs
+
 ```csharp
 if (app.Environment.IsProduction())
     app.UseCors("Production");
@@ -449,23 +478,27 @@ dotnet add package AutoMapper
 ## 🚀 Production Deploy
 
 ### 1. Build Release версию
+
 ```bash
 dotnet publish -c Release -o ./publish
 ```
 
 ### 2. Переместить на сервер
+
 ```bash
 # Коияр папку publish на сервер
 scp -r ./publish user@server:/app/
 ```
 
 ### 3. Запустить на сервере
+
 ```bash
 cd /app/publish
 ASPNETCORE_ENVIRONMENT=Production dotnet bekand.dll
 ```
 
 ### 4. Nginx reverse proxy
+
 ```nginx
 server {
     listen 80;
@@ -483,6 +516,7 @@ server {
 ```
 
 ### 5. Docker deployment
+
 ```dockerfile
 FROM mcr.microsoft.com/dotnet/sdk:10.0 as builder
 WORKDIR /src
@@ -515,6 +549,7 @@ docker run -p 5000:5000 coco-api
 ## 🤝 Contributing
 
 Стандарты кода:
+
 1. Используйте PascalCase для public членов
 2. Используйте camelCase для private переменных
 3. Добавляйте XML comments для public API

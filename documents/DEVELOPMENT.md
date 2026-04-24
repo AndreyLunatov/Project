@@ -19,6 +19,7 @@ npm install
 ### Запуск в development режиме
 
 **Terminal 1 - Backend:**
+
 ```bash
 cd bekand
 dotnet run
@@ -27,6 +28,7 @@ dotnet run
 Сервер будет на http://localhost:5000
 
 **Terminal 2 - Frontend:**
+
 ```bash
 cd frontend
 npm run dev
@@ -67,6 +69,7 @@ Services/            # Business logic (при добавлении)
 ```
 
 Новый контроллер:
+
 ```csharp
 [ApiController]
 [Route("api/[controller]")]
@@ -90,16 +93,17 @@ utils/              # Helper functions
 ```
 
 Новый компонент:
+
 ```jsx
 import PropTypes from 'prop-types';
 
-export const MyComponent = ({ prop1, prop2 }) => {
-  return <div>{prop1}</div>;
+export const MyComponent = ({prop1, prop2}) => {
+    return <div>{prop1}</div>;
 };
 
 MyComponent.propTypes = {
-  prop1: PropTypes.string.isRequired,
-  prop2: PropTypes.number,
+    prop1: PropTypes.string.isRequired,
+    prop2: PropTypes.number,
 };
 
 export default MyComponent;
@@ -163,6 +167,7 @@ dotnet test
 ```
 
 ## 📊 Performance
+
 - Используйте React DevTools Profiler
 - Проверяй Network tab для больших файлов
 - Используй `dotnet publish -c Release` для production бенчмарков
