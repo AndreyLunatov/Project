@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="97b14ed8-fb77-437b-accf-71d9520af6a0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,13 +75,16 @@
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.pluginManager",
     "to.speed.mode.migration.done": "true",
-    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
+    "ts.external.directory.path": "/Users/nb/WebstormProjects/pr/frontend/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/frontend/public" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Docs" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -100,7 +102,7 @@
       <option name="presentableId" value="Default" />
       <updated>1777009928216</updated>
       <workItem from="1777009931295" duration="1447000" />
-      <workItem from="1777012056012" duration="932000" />
+      <workItem from="1777012056012" duration="1509000" />
     </task>
     <servers />
   </component>
