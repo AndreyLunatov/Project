@@ -1,49 +1,73 @@
-# Фронтенд COCO — кратко по делу
+# React + TypeScript + Vite
 
-## Запуск
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-```bash
-cd frontend
-npm install
-npm run dev
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+
+## React Compiler
+
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
+
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 ```
 
-Сайт: **http://localhost:5173**. Бэкенд должен быть запущен отдельно (`cd ../backend && dotnet run`), порт по умолчанию **5248**.
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-## Где что лежит
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-| Путь | Назначение |
-|------|------------|
-| `src/main.jsx` | Точка входа React |
-| `src/App.jsx` | Корневой layout / страница |
-| `src/App.css`, `src/index.css` | Глобальные и корневые стили |
-| `src/components/` | UI-компоненты (рядом с компонентом — свой `.css`) |
-| `src/hooks/useApi.js` | Хук: `loading` / `error` / `data` / `execute` для любого вызова API |
-| `src/api.js` | Обёртка `fetch`: `api.get`, `api.post`, … |
-| `src/utils/helpers.js` | Общие утилиты |
-| `src/assets/` | Картинки, SVG, статика для импорта из кода |
-| `public/` | Файлы как есть по URL (`/config.json`, `/mockData.json`, favicon и т.д.) |
-| `vite.config.js` | Порт dev-сервера, **прокси** `/api` → `http://localhost:5248` |
-| `index.html` | HTML-шаблон, подключение `main.jsx` |
-
-## API с фронта
-
-- В **разработке** запросы идут на **относительный** базовый путь `/api` (см. `src/api.js`) — Vite сам проксирует на ASP.NET.
-- Пример бэкенда: `GET /api/Health/status`.
-- В **продакшене** задайте базу через переменную окружения при сборке: `VITE_API_BASE` (например `https://api.example.com/api`). Если не задана, используется `/api` (один origin с API или свой reverse proxy).
-
-## Скрипты
-
-- `npm run dev` — dev-сервер  
-- `npm run build` — прод-сборка в `dist/`  
-- `npm run preview` — локальный просмотр `dist`  
-- `npm run lint` — ESLint  
-
-## Бэкенд и CORS
-
-Ожидаются origin’ы **http://localhost:5173** и **http://localhost:3000** (настройка в `backend/Program.cs`). Менять порт фронта — синхронизировать с бэкендом.
-
-## Полезное
-
-- Конфиг для UI без сборки: `public/config.json` (читается по `/config.json`).
-- Моки/примеры данных: `public/mockData.json`.
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
