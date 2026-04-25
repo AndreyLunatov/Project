@@ -1,5 +1,5 @@
 import React from "react";
-import {Notifications} from "@/components/header/Notifications.tsx";
+import {Notifications} from "../header/Notifications.tsx";
 interface Props {
   userName: string;
   userClass: string;

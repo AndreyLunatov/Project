@@ -1,4 +1,4 @@
-import {AsideNavigation, Settings, Logo} from "@/components/aside";
+import {AsideNavigation, Settings, Logo} from "../aside";
 import React from "react";
 
 const AsideComponent = () => {

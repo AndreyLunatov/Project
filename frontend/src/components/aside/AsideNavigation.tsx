@@ -1,5 +1,5 @@
-import {GradeIcon, HomeIcon, HomeworkIcon, ProfileIcon, ScheduleIcon} from "@/components/aside/icons";
-import type {IMenuItem} from "@/types";
+import {GradeIcon, HomeIcon, HomeworkIcon, ProfileIcon, ScheduleIcon} from "./icons";
+import type {IMenuItem} from "../../types";
 import {NavLink} from "react-router-dom";
 
 const menuItems: IMenuItem[] = [

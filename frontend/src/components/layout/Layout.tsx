@@ -1,6 +1,6 @@
 import {Outlet} from 'react-router-dom';
 import { Aside } from "./Aside.tsx";
-import {Header} from "@/components/layout/Header.tsx";
+import {Header} from "./Header.tsx";
 
 export const Layout = () => {
   return (

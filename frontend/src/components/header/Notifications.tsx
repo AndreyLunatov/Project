@@ -1,5 +1,5 @@
 import React from "react";
-import {SvgIcon} from "@/components/aside/icons";
+import {SvgIcon} from "../aside/icons";
 
 const NotificationsComponents: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
   return (

@@ -1,4 +1,4 @@
-import {SettingsIcon} from "@/components/aside/icons";
+import {SettingsIcon} from "./icons";
 
 export function Settings() {
   return (
