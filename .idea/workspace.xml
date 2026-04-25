@@ -5,7 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="97b14ed8-fb77-437b-accf-71d9520af6a0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/aside/Aside.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/aside/AsideNavigation.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/aside/icons/GradeIcon.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/aside/icons/HomeIcon.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/aside/icons/HomeworkIcon.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/aside/icons/ProfileIcon.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/aside/icons/ScheduleIcon.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/aside/icons/SettingsIcon.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/aside/icons/SvgIcon.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +35,8 @@
       <list>
         <option value="CSS File" />
         <option value="package.json" />
+        <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -63,7 +77,7 @@
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "front__bundle",
+    "git-widget-placeholder": "origin/front__bundle",
     "javascript.preferred.runtime.type.id": "node",
     "junie.onboarding.icon.badge.shown": "true",
     "last_opened_file_path": "/Users/nb/WebstormProjects/pr",
@@ -73,7 +87,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "ImportCost",
     "to.speed.mode.migration.done": "true",
     "ts.external.directory.path": "/Users/nb/WebstormProjects/pr/frontend/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
@@ -84,6 +98,7 @@
       <recent name="$PROJECT_DIR$/frontend/public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/src/components/aside" />
       <recent name="$PROJECT_DIR$/Docs" />
     </key>
   </component>
@@ -103,6 +118,7 @@
       <updated>1777009928216</updated>
       <workItem from="1777009931295" duration="1447000" />
       <workItem from="1777012056012" duration="1509000" />
+      <workItem from="1777125433716" duration="9238000" />
     </task>
     <servers />
   </component>
