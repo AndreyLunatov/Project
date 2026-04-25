@@ -20,17 +20,15 @@ builder.Services.AddCors(options =>
 // Включаем контроллеры
 builder.Services.AddControllers();
 
-// Swagger/OpenAPI
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+// OpenAPI/Swagger
+builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
 // Middleware
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    app.MapOpenApi();
 }
 
 app.UseCors("ReactApp");
