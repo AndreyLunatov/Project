@@ -1,0 +1,5 @@
+@layer components {
+  .navLink {
+    @apply flex gap-2 px-2 py-3 hover:bg-amber-200 rounded-md cursor-pointer
+  }
+}

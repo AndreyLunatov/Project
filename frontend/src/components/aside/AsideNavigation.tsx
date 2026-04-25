@@ -1,32 +1,34 @@
-import React from "react";
-import HomeIcon from "./icons/HomeIcon.tsx";
-import ScheduleIcon from "./icons/ScheduleIcon.tsx";
-import GradeIcon from "./icons/GradeIcon.tsx";
-import Homework from "./icons/HomeworkIcon.tsx";
-import Profile from "./icons/ProfileIcon.tsx";
+import {GradeIcon, HomeIcon, HomeworkIcon, ProfileIcon, ScheduleIcon} from "@/components/aside/icons";
+import type {IMenuItem} from "@/types";
+import {NavLink} from "react-router-dom";
 
-interface IMenuItem {
-  title: string;
-  icon: React.NamedExoticComponent<React.SVGProps<SVGSVGElement>>;
-}
-
-const fields: IMenuItem[] = [
-  { title: "Главная", icon: HomeIcon },
-  { title: "Расписание", icon: ScheduleIcon },
-  { title: "Оценки", icon: GradeIcon },
-  { title: "Домашнее задание", icon: Homework },
-  { title: "Профиль", icon: Profile },
+const menuItems: IMenuItem[] = [
+  {title: "Главная", to: '/', icon: HomeIcon},
+  {title: "Расписание", to: '/schedule', icon: ScheduleIcon},
+  {title: "Оценки", to: '/grades', icon: GradeIcon},
+  {title: "Домашнее задания", to: '/homework', icon: HomeworkIcon},
+  {title: "Профиль", to: '/profile', icon: ProfileIcon},
 ];
 
-export default function AsideNavigation() {
+export const AsideNavigation = () => {
   return (
-    <ul>
-      {fields.map((field) => (
-        <li key={field.title}>
-          <field.icon className="w-6 h-6" aria-hidden="true"/>
-          <p className={'font-medium'}>{field.title}</p>
-        </li>
-      ))}
-    </ul>
+    <nav>
+      <ul className={'mt-4 px-4 flex flex-col gap-2'}>
+        {menuItems.map(({title, to, icon: Icon}) => {
+          return (
+            <li key={to}>
+              <NavLink
+                to={to}
+                end={to === '/'}
+                className={'navLink'}
+              >
+                <Icon className={'w-5 h-5'}/>
+                <span className={'font-medium text-base'}>{title}</span>
+              </NavLink>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
   );
-}
+};
