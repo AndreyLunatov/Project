@@ -77,40 +77,47 @@ src/
 ## Принципы организации
 
 ### 1. **Index файлы для экспорта**
-   - Каждая папка имеет `index.ts`, который экспортирует все компоненты/функции
-   - Упрощает импорты: `import { Button } from '@/components/common'`
-   - Вместо: `import Button from '@/components/common/Button'`
+
+- Каждая папка имеет `index.ts`, который экспортирует все компоненты/функции
+- Упрощает импорты: `import { Button } from '@/components/common'`
+- Вместо: `import Button from '@/components/common/Button'`
 
 ### 2. **Разделение по типам**
-   - **components**: UI компоненты
-   - **services**: Логика работы с API
-   - **hooks**: Переиспользуемая логика React
-   - **types**: TypeScript типы
-   - **constants**: Константы приложения
-   - **utils**: Вспомогательные функции
+
+- **components**: UI компоненты
+- **services**: Логика работы с API
+- **hooks**: Переиспользуемая логика React
+- **types**: TypeScript типы
+- **constants**: Константы приложения
+- **utils**: Вспомогательные функции
 
 ### 3. **Структура компонентов**
-   - **common**: Базовые компоненты (Button, Card, Loading)
-   - **aside**: Компоненты боковой панели
-   - **layout**: Компоненты разметки
+
+- **common**: Базовые компоненты (Button, Card, Loading)
+- **aside**: Компоненты боковой панели
+- **layout**: Компоненты разметки
 
 ### 4. **API интеграция**
-   - **api.ts**: API клиент с методами GET, POST, PUT, DELETE
-   - **services**: Специализированные сервисы для каждого модуля
-   - **types/api.ts**: Типы для API запросов/ответов
+
+- **api.ts**: API клиент с методами GET, POST, PUT, DELETE
+- **services**: Специализированные сервисы для каждого модуля
+- **types/api.ts**: Типы для API запросов/ответов
 
 ### 5. **Состояние приложения**
-   - **context**: React Context для глобального состояния
-   - **hooks**: Пользовательские хуки для работы с состоянием и данными
+
+- **context**: React Context для глобального состояния
+- **hooks**: Пользовательские хуки для работы с состоянием и данными
 
 ## Примеры использования
 
 ### Импорт компонента
+
 ```typescript
 import { Button, Card, Loading } from '@/components/common';
 ```
 
 ### Использование сервиса
+
 ```typescript
 import { gradesService } from '@/services';
 
@@ -118,6 +125,7 @@ const grades = await gradesService.getGrades();
 ```
 
 ### Использование хука
+
 ```typescript
 import { useAuth, useFetch } from '@/hooks';
 
@@ -126,6 +134,7 @@ const { data, loading, error } = useFetch<Grade[]>('/api/grades');
 ```
 
 ### Использование константы
+
 ```typescript
 import { ROUTES, API_ENDPOINTS } from '@/constants';
 
@@ -133,6 +142,7 @@ import { ROUTES, API_ENDPOINTS } from '@/constants';
 ```
 
 ### Использование типа
+
 ```typescript
 import { User, Grade, Homework } from '@/types';
 

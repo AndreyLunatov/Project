@@ -3,6 +3,7 @@
 ## Старт разработки
 
 ### 1. Установка и запуск
+
 ```bash
 cd frontend
 npm install
@@ -10,11 +11,13 @@ npm run dev
 ```
 
 ### 2. Собрать для production
+
 ```bash
 npm run build
 ```
 
 ### 3. Проверить код
+
 ```bash
 npm run lint
 ```
@@ -23,23 +26,24 @@ npm run lint
 
 ## 📚 Папки и их назначение
 
-| Папка | Назначение | Примеры |
-|-------|-----------|---------|
-| `types/` | TypeScript типы | User, Grade, Homework |
-| `constants/` | Константы приложения | ROUTES, API_ENDPOINTS |
-| `utils/` | Вспомогательные функции | formatDate, delay |
-| `hooks/` | Custom React hooks | useAuth, useFetch |
-| `services/` | API интеграция | gradesService, apiClient |
-| `context/` | Глобальное состояние | AuthContext, useAuth |
-| `config/` | Конфигурация | API URL, настройки |
-| `components/` | React компоненты | Button, Card, Layout |
-| `pages/` | Страницы приложения | Home, Grades, Profile |
+| Папка         | Назначение              | Примеры                  |
+|---------------|-------------------------|--------------------------|
+| `types/`      | TypeScript типы         | User, Grade, Homework    |
+| `constants/`  | Константы приложения    | ROUTES, API_ENDPOINTS    |
+| `utils/`      | Вспомогательные функции | formatDate, delay        |
+| `hooks/`      | Custom React hooks      | useAuth, useFetch        |
+| `services/`   | API интеграция          | gradesService, apiClient |
+| `context/`    | Глобальное состояние    | AuthContext, useAuth     |
+| `config/`     | Конфигурация            | API URL, настройки       |
+| `components/` | React компоненты        | Button, Card, Layout     |
+| `pages/`      | Страницы приложения     | Home, Grades, Profile    |
 
 ---
 
 ## 💡 Примеры использования
 
 ### Используй компонент
+
 ```typescript
 import { Button, Card } from '@/components/common';
 
@@ -53,6 +57,7 @@ export function MyComponent() {
 ```
 
 ### Загрузи данные
+
 ```typescript
 import { gradesService } from '@/services';
 import { useAuth } from '@/hooks';
@@ -74,6 +79,7 @@ export function GradesPage() {
 ```
 
 ### Работай с типами
+
 ```typescript
 import { User, Grade } from '@/types';
 import { ROUTES } from '@/constants';
@@ -89,6 +95,7 @@ const user: User = {
 ```
 
 ### Создай хук
+
 ```typescript
 import { useState, useCallback } from 'react';
 import { homeworkService } from '@/services';
@@ -110,12 +117,14 @@ export function useHomeworkData() {
 ## 🔧 Интеграция API
 
 ### 1. Обновь конфигурацию
+
 ```typescript
 // src/config/index.ts
 const API_BASE_URL = process.env.VITE_API_BASE_URL || 'http://localhost:5000/api';
 ```
 
 ### 2. Используй сервис
+
 ```typescript
 import { gradesService } from '@/services';
 
@@ -127,6 +136,7 @@ const grade = await gradesService.getGradeById('123');
 ```
 
 ### 3. Работай с ошибками
+
 ```typescript
 try {
   const grades = await gradesService.getGrades();
@@ -141,6 +151,7 @@ try {
 ## 📦 Создание новых компонентов
 
 ### 1. Создай файл
+
 ```typescript
 // src/components/common/Badge.tsx
 import { ReactNode } from 'react';
@@ -166,6 +177,7 @@ export const Badge = ({ children, color = 'primary' }: BadgeProps) => {
 ```
 
 ### 2. Добавь в index.ts
+
 ```typescript
 // src/components/common/index.ts
 export { Button } from './Button';
@@ -175,6 +187,7 @@ export { Badge } from './Badge';  // ← Добавь здесь
 ```
 
 ### 3. Используй компонент
+
 ```typescript
 import { Badge } from '@/components/common';
 
@@ -186,6 +199,7 @@ import { Badge } from '@/components/common';
 ## 🎨 Создание новых сервисов
 
 ### 1. Создай файл сервиса
+
 ```typescript
 // src/services/notification.service.ts
 import { apiClient } from './api';
@@ -207,12 +221,14 @@ export const notificationService = {
 ```
 
 ### 2. Добавь в index.ts
+
 ```typescript
 // src/services/index.ts
 export * from './notification.service';  // ← Добавь здесь
 ```
 
 ### 3. Используй сервис
+
 ```typescript
 import { notificationService } from '@/services';
 
@@ -232,6 +248,7 @@ VITE_DEBUG=false
 ```
 
 Используй в коде:
+
 ```typescript
 const apiUrl = import.meta.env.VITE_API_BASE_URL;
 ```
@@ -250,6 +267,7 @@ const apiUrl = import.meta.env.VITE_API_BASE_URL;
 ## 🚨 Решение проблем
 
 ### Проблема: Ошибка импорта типа
+
 ```
 TS2305: Module has no exported member
 ```
@@ -265,12 +283,15 @@ import { Button } from '@/components/common';
 ```
 
 ### Проблема: Path alias не работает
+
 **Решение:** Перезагрузи сервер dev:
+
 ```bash
 npm run dev
 ```
 
 ### Проблема: Типы не работают
+
 **Решение:** Проверь, что TypeScript файл имеет расширение `.ts` или `.tsx`
 
 ---
@@ -313,6 +334,7 @@ npm update
 ## 🎯 Лучшие практики
 
 ✅ **Используй именованные экспорты**
+
 ```typescript
 // Правильно
 export const Button = () => {};
@@ -322,6 +344,7 @@ export default Button;
 ```
 
 ✅ **Группируй связанные файлы**
+
 ```
 components/
   common/
@@ -331,11 +354,13 @@ components/
 ```
 
 ✅ **Используй TypeScript типы везде**
+
 ```typescript
 const handleClick: React.MouseEventHandler = (e) => {};
 ```
 
 ✅ **Разделяй логику и представление**
+
 ```typescript
 // Логика в хуках
 const { data } = useGrades();
@@ -345,6 +370,7 @@ const { data } = useGrades();
 ```
 
 ✅ **Используй сервисы для API**
+
 ```typescript
 // Вместо fetch в компонентах
 import { gradesService } from '@/services';

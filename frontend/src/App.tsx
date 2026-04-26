@@ -1,7 +1,7 @@
 import {lazy, Suspense} from 'react';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
-import { Layout } from "./components/layout";
-import { Loading } from "./components/common/Loading.tsx";
+import {Loading} from "./components/common/Loading.tsx";
+import {Layout} from "./components/layout/Layout.tsx";
 import './styles/theme.css'
 
 // Ленивые страницы

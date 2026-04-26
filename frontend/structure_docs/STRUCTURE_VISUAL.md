@@ -138,23 +138,27 @@ frontend/
 ## Примеры кода
 
 ### Импорт компонента
+
 ```typescript
 import { Button, Card, Loading } from '@/components/common';
 ```
 
 ### Импорт сервиса
+
 ```typescript
 import { gradesService } from '@/services';
 const grades = await gradesService.getGrades();
 ```
 
 ### Импорт хука
+
 ```typescript
 import { useAuth, useFetch } from '@/hooks';
 const { user } = useAuth();
 ```
 
 ### Импорт типа
+
 ```typescript
 import { User, Grade } from '@/types';
 import { ROUTES } from '@/constants';
