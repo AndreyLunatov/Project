@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using Backend.Repositories_bd;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Конфигурация логирования
@@ -22,6 +25,10 @@ builder.Services.AddControllers();
 
 // OpenAPI/Swagger
 builder.Services.AddOpenApi();
+
+// Регистрация DbContext
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 
