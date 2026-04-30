@@ -1,13 +1,12 @@
-import {useState} from "react";
-import {BASEAPI, REGISTER_API} from "../utils";
+import {LOGIN_API} from "../utils";
 
 interface IUserLoginResponse {
   login: string;
   password: string;
 }
 
-export const authApi = async ({login, password}: IUserLoginResponse) => {
-  await fetch(REGISTER_API, {
+export const loginApi = async ({login, password}: IUserLoginResponse) => {
+  await fetch(LOGIN_API, {
     method: "POST",
     mode: "cors",
     credentials: "same-origin",

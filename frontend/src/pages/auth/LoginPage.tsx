@@ -1,17 +1,26 @@
 import {InputField} from "../../components/ui";
-import {authApi} from "../../api/authApi.ts";
+import {loginApi} from "../../api/authApi.ts";
+import {LOGIN_API} from "../../utils";
+import {useState} from "react";
 
 export default function LoginPage() {
+  const [login, setLogin] = useState<string>('');
+  const [password, setPassword] = useState('');
   return (
     <section className={'size-full flex items-center justify-center bg-gray-900 overflow-hidden'}>
       <div className={'bg-gray-100 rounded-3xl shadow-2xl max-w-4xl w-full h-150 flex overflow-hidden relative'}>
         <div className={'w-full md:w-1/2 p-12 flex flex-col justify-center'}>
           <h1 className={'text-3xl mb-8'}>Вход</h1>
-          <form className={'flex flex-col gap-6 mb-6'}>
-            <InputField fieldType={'text'} fieldName={'login'} label={'Логин или почта'} placeholder={'Введите логин'}/>
-            <InputField fieldType={'password'} fieldName={'password'} label={'Пароль'} placeholder={'Введите пароль'}/>
+          <form className={'flex flex-col gap-6 mb-6'} onSubmit={(e) => {
+            e.preventDefault();
+            loginApi({login: 'login', password: 'password'}).then((res) => {
+              console.log(`Отправлено на ${LOGIN_API} с данными: ${JSON.stringify({login, password})}, получено: ${res}`);
+            })
+          }}>
+            <InputField fieldType={'text'} fieldName={'login'} label={'Логин или почта'} placeholder={'Введите логин'} value={login} onChange={(e) => setLogin(e.target.value)}/>
+            <InputField fieldType={'password'} fieldName={'password'} label={'Пароль'} placeholder={'Введите пароль'} value={password} onChange={(e) => setPassword(e.target.value)}/>
             <div className={'flex flex-col gap-6'}>
-              <button className={'px-4 py-2 bg-accent w-full h-12 rounded-xl cursor-pointer'} type={'submit'} onSubmit={authApi}>Войти
+              <button className={'px-4 py-2 bg-accent w-full h-12 rounded-xl cursor-pointer'} type={'submit'}>Войти
               </button>
               <button className={'cursor-pointer text-sm text-gray-600 hover:text-gray-900'} type={'button'}>Нет
                 аккаунта? Зарегистрируйтесь
