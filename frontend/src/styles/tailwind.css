@@ -1,12 +1,7 @@
 @import "tailwindcss";
-@import "./components.css";
-
-html {
-  @apply bg-background;
-}
 
 html, body, #root {
-  height: 100%;
+  @apply size-full
 }
 
 @theme {

@@ -1,28 +1,24 @@
 import {lazy, Suspense} from 'react';
-import {BrowserRouter, Route, Routes} from 'react-router-dom';
-import {Loading} from "./components/common/Loading.tsx";
-import {Layout} from "./components/layout/Layout.tsx";
-import './styles/theme.css'
+import {BrowserRouter, Navigate, Route, Routes} from 'react-router-dom';
+import {Loading} from "./components/ui";
 
 // Ленивые страницы
+const LoginPage = lazy(() => import('./pages/auth/LoginPage.tsx'));
+const RegisterPage = lazy(() => import('./pages/auth/RegisterPage.tsx'))
 const Home = lazy(() => import('./pages/Home'));
-const Schedule = lazy(() => import('./pages/Schedule.tsx'));
-const Grades = lazy(() => import('./pages/Grades'));
-const Homework = lazy(() => import('./pages/Homework'));
 const Profile = lazy(() => import('./pages/Profile'));
 
 export default function App() {
+
   return (
     <BrowserRouter>
       <Suspense fallback={<Loading/>}>
         <Routes>
-          <Route element={<Layout/>}>
-            <Route index element={<Home/>}/>
-            <Route path="schedule" element={<Schedule/>}/>
-            <Route path="grades" element={<Grades/>}/>
-            <Route path="homework" element={<Homework/>}/>
-            <Route path="profile" element={<Profile/>}/>
-          </Route>
+          <Route index element={<Navigate to={'/auth/login'}/>}/>
+          <Route element={<LoginPage/>} path={'/auth/login'}/>
+          <Route element={<RegisterPage/>} path={'/auth/register'}/>
+          <Route element={<Home/>} path={'/home'}/>
+          <Route element={<Profile/>} path={'/profile'}/>
         </Routes>
       </Suspense>
     </BrowserRouter>
