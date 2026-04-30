@@ -1,39 +1,75 @@
-var builder = WebApplication.CreateBuilder(args);
+using System.Text;
+using Microsoft.EntityFrameworkCore;
+using Backend.Repositories_bd;
+using Backend.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 
-// Конфигурация логирования
-builder.Logging.ClearProviders();
-builder.Logging.AddConsole();
-builder.Logging.AddDebug();
+var builder = WebApplication.CreateBuilder(args); // создаём приложение
 
-// CORS — разрешаем React обращаться к API
+// ===== ЛОГИРОВАНИЕ =====
+builder.Logging.ClearProviders();  // убираем стандартные логи
+builder.Logging.AddConsole();      // добавляем логи в консоль
+builder.Logging.AddDebug();        // добавляем логи для дебага
+
+// ===== CORS — разрешаем React обращаться к API =====
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("ReactApp", policy =>
     {
         policy.WithOrigins("http://localhost:5173", "http://localhost:3000")
-            .AllowAnyHeader()
-            .AllowAnyMethod()
-            .AllowCredentials();
+            .AllowAnyHeader()    // разрешаем любые заголовки
+            .AllowAnyMethod()    // разрешаем GET POST PUT DELETE
+            .AllowCredentials(); // разрешаем куки и токены
     });
 });
 
-// Включаем контроллеры
-builder.Services.AddControllers();
+// ===== БАЗА ДАННЫХ =====
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseNpgsql(builder.Configuration
+        .GetConnectionString("DefaultConnection"))); // берём строку из appsettings.json
 
-// OpenAPI/Swagger
-builder.Services.AddOpenApi();
+// ===== РЕГИСТРИРУЕМ AUTHSERVICE =====
+// AddScoped — один объект на один запрос, потом удаляется
+builder.Services.AddScoped<AuthService>();
 
-var app = builder.Build();
+// ===== JWT АВТОРИЗАЦИЯ =====
+var jwtKey = builder.Configuration["Jwt:Key"]!; // берём ключ из appsettings.json
 
-// Middleware
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,           // проверяем кто выдал токен
+            ValidateAudience = true,         // проверяем кому выдан токен
+            ValidateLifetime = true,         // проверяем не истёк ли токен
+            ValidateIssuerSigningKey = true, // проверяем подпись токена
+            ValidIssuer = builder.Configuration["Jwt:Issuer"],     // "Backend"
+            ValidAudience = builder.Configuration["Jwt:Audience"], // "Frontend"
+            IssuerSigningKey = new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes(jwtKey)) // секретный ключ для проверки
+        };
+    });
+
+// ===== КОНТРОЛЛЕРЫ И SWAGGER =====
+builder.Services.AddControllers();          // включаем контроллеры
+builder.Services.AddEndpointsApiExplorer(); // нужно для Swagger
+builder.Services.AddSwaggerGen();           // включаем Swagger UI
+
+var app = builder.Build(); // собираем приложение
+
+// ===== MIDDLEWARE (порядок важен!) =====
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    app.UseSwagger();   // включаем Swagger JSON
+    app.UseSwaggerUI(); // включаем UI на http://localhost:5000/swagger
 }
 
-app.UseCors("ReactApp");
-app.UseHttpsRedirection();
-app.UseAuthorization();
-app.MapControllers();
+app.UseCors("ReactApp");       // 1. CORS
+app.UseHttpsRedirection();     // 2. перенаправление на HTTPS
+app.UseAuthentication();       // 3. проверяем кто ты (токен)
+app.UseAuthorization();        // 4. проверяем что тебе можно делать
+app.MapControllers();          // 5. подключаем контроллеры
 
-app.Run();
+app.Run(); // запускаем!
