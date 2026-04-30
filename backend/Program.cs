@@ -53,15 +53,17 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     });
 
 // ===== КОНТРОЛЛЕРЫ И SWAGGER =====
-builder.Services.AddControllers(); // включаем контроллеры
-builder.Services.AddOpenApi();     // включаем Swagger документацию
+builder.Services.AddControllers();          // включаем контроллеры
+builder.Services.AddEndpointsApiExplorer(); // нужно для Swagger
+builder.Services.AddSwaggerGen();           // включаем Swagger UI
 
 var app = builder.Build(); // собираем приложение
 
 // ===== MIDDLEWARE (порядок важен!) =====
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi(); // Swagger только в режиме разработки
+    app.UseSwagger();   // включаем Swagger JSON
+    app.UseSwaggerUI(); // включаем UI на http://localhost:5000/swagger
 }
 
 app.UseCors("ReactApp");       // 1. CORS
