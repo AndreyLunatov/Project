@@ -13,8 +13,10 @@ export default function LoginPage() {
           <h1 className={'text-3xl mb-8'}>Вход</h1>
           <form className={'flex flex-col gap-6 mb-6'} onSubmit={(e) => {
             e.preventDefault();
-            loginApi({login: 'login', password: 'password'}).then((res) => {
-              console.log(`Отправлено на ${LOGIN_API} с данными: ${JSON.stringify({login, password})}, получено: ${res}`);
+            loginApi({login, password}).then((res) => {
+              console.log(`Отправлено на ${LOGIN_API} с данными: ${JSON.stringify({login, password})}, получено:`, res);
+            }).catch((error) => {
+              console.error('Ошибка при отправке:', error);
             })
           }}>
             <InputField fieldType={'text'} fieldName={'login'} label={'Логин или почта'} placeholder={'Введите логин'} value={login} onChange={(e) => setLogin(e.target.value)}/>
