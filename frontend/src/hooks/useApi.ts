@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import {useCallback, useEffect, useState} from 'react';
 
 interface UseApiState<T> {
   data: T | null;
@@ -24,13 +24,13 @@ export function useApi<T = unknown>(
   });
 
   const execute = useCallback(async () => {
-    setState({ data: null, loading: true, error: null });
+    setState({data: null, loading: true, error: null});
     try {
       const result = await apiFn();
-      setState({ data: result, loading: false, error: null });
+      setState({data: result, loading: false, error: null});
     } catch (err) {
       const error = err instanceof Error ? err : new Error(String(err));
-      setState({ data: null, loading: false, error });
+      setState({data: null, loading: false, error});
     }
   }, [apiFn]);
 

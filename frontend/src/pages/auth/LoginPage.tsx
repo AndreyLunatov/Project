@@ -19,8 +19,10 @@ export default function LoginPage() {
               console.error('Ошибка при отправке:', error);
             })
           }}>
-            <InputField fieldType={'text'} fieldName={'login'} label={'Логин или почта'} placeholder={'Введите логин'} value={login} onChange={(e) => setLogin(e.target.value)}/>
-            <InputField fieldType={'password'} fieldName={'password'} label={'Пароль'} placeholder={'Введите пароль'} value={password} onChange={(e) => setPassword(e.target.value)}/>
+            <InputField fieldType={'text'} fieldName={'login'} label={'Логин или почта'} placeholder={'Введите логин'}
+                        value={login} onChange={(e) => setLogin(e.target.value)}/>
+            <InputField fieldType={'password'} fieldName={'password'} label={'Пароль'} placeholder={'Введите пароль'}
+                        value={password} onChange={(e) => setPassword(e.target.value)}/>
             <div className={'flex flex-col gap-6'}>
               <button className={'px-4 py-2 bg-accent w-full h-12 rounded-xl cursor-pointer'} type={'submit'}>Войти
               </button>
