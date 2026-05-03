@@ -8,6 +8,7 @@ export interface IInputField {
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   pattern?: string;
+  error?: string;
 }
 
 export type TAuthStatus = "loading" | "authenticated" | "unauthenticated";
