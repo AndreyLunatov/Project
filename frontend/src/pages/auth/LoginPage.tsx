@@ -19,8 +19,7 @@ export default function LoginPage({ submitForm }: ILogin) {
       newErrors.login = 'Логин должен быть не менее 3 символов';
     } else if (!login.includes('@')) {
       newErrors.login = 'Логин не является почтой';
-    } else if (login.includes('@')) {
-      // Если похоже на email – проверяем формат
+    } else {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(login)) {
         newErrors.login = 'Некорректный email';
@@ -40,10 +39,20 @@ export default function LoginPage({ submitForm }: ILogin) {
     return Object.keys(newErrors).length === 0;
   };
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!validateForm()) return;
-    await submitForm(login, password);
+    if (!validateForm() || isSubmitting) return;
+    setIsSubmitting(true);
+    try {
+      const success = await submitForm(login, password);
+      if (!success) {
+        setErrors({ login: 'Неверный логин или пароль' });
+      }
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -86,8 +95,9 @@ export default function LoginPage({ submitForm }: ILogin) {
 
             <div className="flex flex-col gap-6">
               <button
-                className="px-4 py-2 bg-accent w-full h-12 rounded-xl cursor-pointer"
+                className="px-4 py-2 bg-accent w-full h-12 rounded-xl cursor-pointer disabled:bg-accent/30"
                 type="submit"
+                disabled={isSubmitting}
               >
                 Войти
               </button>
