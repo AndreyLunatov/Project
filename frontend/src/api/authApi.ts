@@ -37,7 +37,7 @@ export const registerApi = async ({login, email, password}: IUserRegisterRespons
 
 export const verifyToken = async (token: string) => {
   const response = await fetch(VERIFY_TOKEN_API, {
-    method: "GET",
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
     },

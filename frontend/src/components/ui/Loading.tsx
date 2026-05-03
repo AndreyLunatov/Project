@@ -1,5 +1,14 @@
 export const Loading = () => {
   return (
-    <div>Loading...</div>
+    <div className={'size-full bg-gray-900 flex justify-center items-center text-white'}>
+      <div className={'book'}>
+        <div className={'book__pg-shadow'}></div>
+        <div className={'book__pg'}></div>
+        <div className={'book__pg book__pg--2'}></div>
+        <div className={'book__pg book__pg--3'}></div>
+        <div className={'book__pg book__pg--4'}></div>
+        <div className={'book__pg book__pg--5'}></div>
+      </div>
+    </div>
   );
 }
