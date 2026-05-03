@@ -9,3 +9,9 @@ export interface IInputField {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   pattern?: string;
 }
+
+export type TAuthStatus = "loading" | "authenticated" | "unauthenticated";
+
+export interface ILogin {
+  submitForm(login: string, password: string): Promise<boolean>; // теперь async
+}

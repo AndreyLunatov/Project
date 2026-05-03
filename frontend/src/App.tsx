@@ -1,26 +1,63 @@
-import {lazy, Suspense} from 'react';
-import {BrowserRouter, Navigate, Route, Routes} from 'react-router-dom';
-import {Loading} from "./components/ui";
-
-// Ленивые страницы
-const LoginPage = lazy(() => import('./pages/auth/LoginPage.tsx'));
-const RegisterPage = lazy(() => import('./pages/auth/RegisterPage.tsx'))
-const Home = lazy(() => import('./pages/Home'));
-const Profile = lazy(() => import('./pages/Profile'));
+import {Suspense, useEffect, useState} from 'react';
+import {BrowserRouter} from 'react-router-dom';
+import {Loading} from './components/ui';
+import {loginApi, verifyToken} from "./api/authApi.ts";
+import type {TAuthStatus} from "./utils";
+import {AuthorizedRoutes, GuestRoutes} from "./components/routes";
 
 export default function App() {
+  // Состояние аутентификации пользователя, по трем пользовательским типам 'loading' | 'authenticated' | 'unauthenticated'
+  const [authStatus, setAuthStatus] = useState<TAuthStatus>(() => {
+    return localStorage.getItem('session') ? 'loading' : 'unauthenticated';
+  });
+
+  // useEffect, для прорисовки в случае изменения состояния
+  useEffect(() => {
+    const token = localStorage.getItem('session');
+    if (!token) {
+      return;
+    }
+
+    verifyToken(token)
+      .then(() => setAuthStatus('authenticated'))
+      .catch(() => {
+        localStorage.removeItem('session'); // токен невалиден – чистим
+        setAuthStatus('unauthenticated');
+      });
+  }, []);
+
+  const handleLoginSuccess = (token: string) => {
+    localStorage.setItem('session', token);
+    setAuthStatus('authenticated');
+  };
+
+  if (authStatus === 'loading') {
+    return <Loading/>;
+  }
 
   return (
     <BrowserRouter>
       <Suspense fallback={<Loading/>}>
-        <Routes>
-          <Route index element={<Navigate to={'/auth/login'}/>}/>
-          <Route element={<LoginPage/>} path={'/auth/login'}/>
-          <Route element={<RegisterPage/>} path={'/auth/register'}/>
-          <Route element={<Home/>} path={'/home'}/>
-          <Route element={<Profile/>} path={'/profile'}/>
-        </Routes>
+        {authStatus === 'authenticated' ? (
+          <AuthorizedRoutes/>
+        ) : (
+          <GuestRoutes submitForm={
+            async (login, password) => {
+              // вызываем loginApi, получаем token
+              const res = await loginApi({login, password});
+              if (res.token) {
+                handleLoginSuccess(res.token);
+                return true;
+              }
+              return false
+            }
+          }
+          />
+        )}
       </Suspense>
     </BrowserRouter>
   );
 }
+
+
+
