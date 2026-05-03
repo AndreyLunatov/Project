@@ -2,7 +2,7 @@ import type {IInputField} from "../../utils";
 
 export const InputField = ({fieldName, fieldType, label, placeholder, value, onChange, error}: IInputField) => {
   return (
-    <div className={'space-y-2'}>
+    <div className={'space-y-1'}>
       <label htmlFor={fieldName}
              className={'flex items-center gap-2 text-sm leading-none font-medium'}>
         {label}

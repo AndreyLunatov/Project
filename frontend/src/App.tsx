@@ -41,7 +41,7 @@ export default function App() {
         {authStatus === 'authenticated' ? (
           <AuthorizedRoutes/>
         ) : (
-          <GuestRoutes submitForm={
+          <GuestRoutes submitLogin={
             async (login, password) => {
               // вызываем loginApi, получаем token
               const res = await loginApi({login, password});

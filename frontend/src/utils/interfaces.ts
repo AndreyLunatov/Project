@@ -14,5 +14,8 @@ export interface IInputField {
 export type TAuthStatus = "loading" | "authenticated" | "unauthenticated";
 
 export interface ILogin {
-  submitForm(login: string, password: string): Promise<boolean>; // теперь async
+  submitLogin(login: string, password: string): Promise<boolean>; // теперь async
 }
+
+export type TFormErrors = { firstName?: string, lastName?: string, login?: string; password?: string }
+
