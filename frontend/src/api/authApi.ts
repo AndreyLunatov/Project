@@ -37,11 +37,10 @@ export const registerApi = async ({login, email, password}: IUserRegisterRespons
 
 export const verifyToken = async (token: string) => {
   const response = await fetch(VERIFY_TOKEN_API, {
-    method: "POST",
+    method: "GET",
     headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({token}),
+      Authorization: `Bearer ${token}`,
+    }
   })
   return response.json();
 }
