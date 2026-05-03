@@ -66,8 +66,8 @@ export default function LoginPage({ submitForm }: ILogin) {
               <InputField
                 fieldType="text"
                 fieldName="login"
-                label="Введите почту"
-                placeholder="Введите e-mail:"
+                label="Почта:"
+                placeholder="Введите e-mail"
                 value={login}
                 onChange={(e) => {
                   setLogin(e.target.value);
@@ -82,8 +82,8 @@ export default function LoginPage({ submitForm }: ILogin) {
               <InputField
                 fieldType="password"
                 fieldName="password"
-                label="Пароль"
-                placeholder="Введите пароль:"
+                label="Пароль:"
+                placeholder="Введите пароль"
                 value={password}
                 onChange={(e) => {
                   setPassword(e.target.value);
