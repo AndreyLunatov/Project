@@ -8,7 +8,7 @@
   .book {
     background-color: hsl(268, 90%, 65%);
     border-radius: 0.25em;
-    box-shadow:c
+    box-shadow:
       0 0.25em 0.5em hsla(0, 0%, 0%, 0.3),
       0 0 0 0.25em hsl(278, 100%, 57%) inset;
     padding: 0.25em;

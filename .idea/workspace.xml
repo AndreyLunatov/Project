@@ -5,7 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="97b14ed8-fb77-437b-accf-71d9520af6a0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/QUICK_STATUS.md" beforeDir="false" afterPath="$PROJECT_DIR$/QUICK_STATUS.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/logo_with_text.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/logo_without_text.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QUICK_STATUS.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.env" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.env.development" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.env.example" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.env.production" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/logo_with_text.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/logo_without_text.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/package-lock.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/styles/components.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/styles/components.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/structure_docs/CHANGES.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/structure_docs/ORGANIZATION_SUMMARY.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/structure_docs/QUICK_START.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/structure_docs/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/structure_docs/STRUCTURE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/structure_docs/STRUCTURE_CHECKLIST.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/structure_docs/STRUCTURE_VISUAL.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/structure_docs/start.sh" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +95,7 @@
     "git-widget-placeholder": "main",
     "javascript.preferred.runtime.type.id": "node",
     "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/Users/nb/WebstormProjects/pr",
+    "last_opened_file_path": "/Users/nb/WebstormProjects/pr/frontend/public",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -117,7 +137,7 @@
       <updated>1777009928216</updated>
       <workItem from="1777009931295" duration="1447000" />
       <workItem from="1777012056012" duration="1509000" />
-      <workItem from="1777761372968" duration="14138000" />
+      <workItem from="1777761372968" duration="15431000" />
     </task>
     <servers />
   </component>
