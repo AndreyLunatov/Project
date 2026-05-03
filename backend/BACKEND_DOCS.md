@@ -59,7 +59,7 @@ dotnet publish -c Release
 
 ## 📋 Program.cs - Главная конфигурация
 
-```csharp
+```csharpgit log --diff-filter=D --summary -- <path-to-api-folder>
 // 1. Логирование
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();

@@ -49,6 +49,7 @@ public class AuthService
         if (!BCrypt.Net.BCrypt.Verify(dto.Password, user.PasswordHash)) return null;
 
         return GenerateToken(user);
+
     }
 
     // Генерация JWT токена
@@ -67,6 +68,7 @@ public class AuthService
             new Claim(ClaimTypes.Role, user.Role)
         };
 
+
         var token = new JwtSecurityToken(
             issuer: _config["Jwt:Issuer"],
             audience: _config["Jwt:Audience"],
@@ -76,5 +78,20 @@ public class AuthService
         );
 
         return new JwtSecurityTokenHandler().WriteToken(token);
+
+
+    }
+    public async Task<object?> GetUserByIdAsync(int userId)
+    {
+        var user = await _db.Users.FindAsync(userId);
+        if (user == null) return null;
+
+        return new
+        {
+            user.Id,
+            user.Email,
+            user.Name,
+            user.Role
+        };
     }
 }
