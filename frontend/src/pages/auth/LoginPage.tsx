@@ -1,12 +1,13 @@
-import { InputField } from "../../components/ui";
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import type { ILogin } from "../../utils";
+import {InputField} from "../../components/ui";
+import {useState} from 'react';
+import {useNavigate} from 'react-router-dom';
+import type {ILogin} from "../../utils";
 
-export default function LoginPage({ submitForm }: ILogin) {
+export default function LoginPage({submitForm}: ILogin) {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState<{ login?: string; password?: string }>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const navigate = useNavigate();
 
   const validateForm = (): boolean => {
@@ -39,8 +40,6 @@ export default function LoginPage({ submitForm }: ILogin) {
     return Object.keys(newErrors).length === 0;
   };
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateForm() || isSubmitting) return;
@@ -48,7 +47,7 @@ export default function LoginPage({ submitForm }: ILogin) {
     try {
       const success = await submitForm(login, password);
       if (!success) {
-        setErrors({ login: 'Неверный логин или пароль' });
+        setErrors({login: 'Неверный логин или пароль'});
       }
     } finally {
       setIsSubmitting(false);
@@ -71,7 +70,7 @@ export default function LoginPage({ submitForm }: ILogin) {
                 value={login}
                 onChange={(e) => {
                   setLogin(e.target.value);
-                  if (errors.login) setErrors((prev) => ({ ...prev, login: undefined }));
+                  if (errors.login) setErrors((prev) => ({...prev, login: undefined}));
                 }}
                 error={errors.login || ''}
               />
@@ -87,7 +86,7 @@ export default function LoginPage({ submitForm }: ILogin) {
                 value={password}
                 onChange={(e) => {
                   setPassword(e.target.value);
-                  if (errors.password) setErrors((prev) => ({ ...prev, password: undefined }));
+                  if (errors.password) setErrors((prev) => ({...prev, password: undefined}));
                 }}
                 error={errors.password || ''}
               />
@@ -120,9 +119,9 @@ export default function LoginPage({ submitForm }: ILogin) {
             preserveAspectRatio="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <path d="M 0 0 Q 100 300 0 600 L 400 600 L 400 0 Z" fill="#3B82F6" opacity="0.8" />
-            <path d="M 50 0 Q 150 300 50 600 L 400 600 L 400 0 Z" fill="#60A5FA" opacity="0.6" />
-            <path d="M 100 0 Q 200 300 100 600 L 400 600 L 400 0 Z" fill="#93C5FD" opacity="0.4" />
+            <path d="M 0 0 Q 100 300 0 600 L 400 600 L 400 0 Z" fill="#3B82F6" opacity="0.8"/>
+            <path d="M 50 0 Q 150 300 50 600 L 400 600 L 400 0 Z" fill="#60A5FA" opacity="0.6"/>
+            <path d="M 100 0 Q 200 300 100 600 L 400 600 L 400 0 Z" fill="#93C5FD" opacity="0.4"/>
           </svg>
         </div>
       </div>
