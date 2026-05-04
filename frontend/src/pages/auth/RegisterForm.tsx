@@ -32,7 +32,7 @@ export const RegisterForm: React.FC<RegisterFormProps> = React.memo(({
     </div>
     <div className="w-full md:w-1/2 p-12 flex flex-col justify-center">
       <h1 className="text-3xl mb-8">Регистрация</h1>
-      <form className="flex flex-col gap-6 mb-6" onSubmit={onSubmit}>
+      <form className="flex flex-col gap-4 mb-6" onSubmit={onSubmit}>
         <div className="flex gap-6 mb-2">
           <InputField
             fieldType="text"

@@ -15,7 +15,7 @@ export const LoginForm: React.FC<LoginFormProps> = React.memo(({
   <div className="bg-gray-100 rounded-3xl shadow-2xl max-w-4xl w-full h-150 flex overflow-hidden relative">
     <div className="w-full md:w-1/2 p-12 flex flex-col justify-center">
       <h1 className="text-3xl mb-8">Вход</h1>
-      <form className="flex flex-col gap-6 mb-6" onSubmit={onSubmit}>
+      <form className="flex flex-col gap-4 mb-6" onSubmit={onSubmit}>
         <InputField
           fieldType="text"
           fieldName="login"
