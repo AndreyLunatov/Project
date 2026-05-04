@@ -1,7 +1,7 @@
 import {Suspense, useEffect, useState} from 'react';
 import {BrowserRouter} from 'react-router-dom';
 import {Loading} from './components/ui';
-import {loginApi, verifyToken} from "./api/authApi.ts";
+import {loginApi, registerApi, verifyToken} from "./api/authApi.ts";
 import type {TAuthStatus} from "./utils";
 import {AuthorizedRoutes, GuestRoutes} from "./components/routes";
 
@@ -41,17 +41,28 @@ export default function App() {
         {authStatus === 'authenticated' ? (
           <AuthorizedRoutes/>
         ) : (
-          <GuestRoutes submitLogin={
-            async (login, password) => {
-              // вызываем loginApi, получаем token
-              const res = await loginApi({login, password});
-              if (res.token) {
-                handleLoginSuccess(res.token);
-                return true;
+          <GuestRoutes
+            submitLogin={
+              async (login, password) => {
+                // вызываем loginApi, получаем token
+                const res = await loginApi({login, password});
+                if (res.token) {
+                  handleLoginSuccess(res.token);
+                  return true;
+                }
+                return false
               }
-              return false
             }
-          }
+            submitRegistration={
+              async (firstName, lastName, email, password) => {
+                const res = await registerApi({firstName, lastName, email, password});
+                if (res.token) {
+                  handleLoginSuccess(res.token);
+                  return true;
+                }
+                return false
+              }
+            }
           />
         )}
       </Suspense>

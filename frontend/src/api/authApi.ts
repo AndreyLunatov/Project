@@ -1,4 +1,4 @@
-import {LOGIN_API, REGISTER_API, VERIFY_TOKEN_API} from "../utils";
+import {type IUserRegisterResponse, LOGIN_API, REGISTER_API, VERIFY_TOKEN_API} from "../utils";
 
 interface IUserLoginResponse {
   login: string;
@@ -16,13 +16,7 @@ export const loginApi = async ({login, password}: IUserLoginResponse) => {
   return response.json();
 }
 
-interface IUserRegisterResponse {
-  login: string;
-  email: string;
-  password: string;
-}
-
-export const registerApi = async ({login, email, password}: IUserRegisterResponse) => {
+export const registerApi = async ({firstName, lastName, email, password}: IUserRegisterResponse) => {
   const response = await fetch(REGISTER_API, {
     method: "POST",
     mode: "cors",
@@ -30,7 +24,7 @@ export const registerApi = async ({login, email, password}: IUserRegisterRespons
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({login, email, password}),
+    body: JSON.stringify({firstName, lastName, email, password}),
   })
   return response.json();
 }
