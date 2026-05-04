@@ -1,5 +1,5 @@
 import React from 'react';
-import { InputField } from '../../components/ui';
+import { InputField } from '../ui';
 import type {LoginFormProps} from '../../utils';
 
 export const LoginForm: React.FC<LoginFormProps> = React.memo(({

@@ -1,5 +1,5 @@
 import {Navigate, Route, Routes} from "react-router-dom";
-import {AuthPage} from "../../pages/auth/AuthPage.tsx";
+import {AuthPage} from "../../pages/AuthPage.tsx";
 import type {IUseAuthFormParams} from "../../utils";
 
 export const GuestRoutes = ({submitLogin, submitRegistration}: IUseAuthFormParams) => {

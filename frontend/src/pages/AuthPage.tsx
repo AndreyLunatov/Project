@@ -1,7 +1,7 @@
-import {LoginForm} from "./LoginForm.tsx";
-import {RegisterForm} from "./RegisterForm.tsx";
-import {useAuthForm} from "../../hooks";
-import type {IUseAuthFormParams} from "../../utils";
+import {LoginForm} from "../components/auth/LoginForm.tsx";
+import {RegisterForm} from "../components/auth/RegisterForm.tsx";
+import {useAuthForm} from "../hooks";
+import type {IUseAuthFormParams} from "../utils";
 
 export const AuthPage = ({ submitLogin, submitRegistration }: IUseAuthFormParams) => {
   const auth = useAuthForm({ submitLogin, submitRegistration });
